@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th ="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/sinhvien/themsv}" method="post">
+<table>
+        <tr>
+            <td>Tên Sinh Viên</td>
+            <td><input type="text" name="hoTen" /></td>
+        </tr>
+        <tr >
+            <td>Mã Lớp</td>
+            <td>
+                <select name="maLop"  style="width: 100px">
+                    <option th:each="lop: ${dslop}" th:value="${lop.maLop}" th:text="${lop.maLop}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Thêm Sinh Viên" /></td>
+    </tr>
+</table>
+</form>
+</body>
+</html>

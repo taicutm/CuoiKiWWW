@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinh Viên</title>
+</head>
+<body>
+<a th:href="@{/sinhvien/add}">Thêm Sinh Viên</a>
+<form th:action="@{/sinhvien/search}">
+    <input type="text" name="keyword" />
+    <input type="submit" value="Tìm Kiếm" />
+</form>
+<table border="1">
+  <tr>
+    <th>Mã Sinh Viên</th>
+    <th>Họ Tên</th>
+    <th>Mã Lớp</th>
+      <th>Thao Tác</th>
+
+  </tr>
+    <tbody>
+    <tr th:each="sinhvien: ${dssv}">
+        <td th:text="${sinhvien.masv}"></td>
+        <td th:text="${sinhvien.hoTen}"></td>
+        <td th:text="${sinhvien.lopHoc.getMaLop()}"></td>
+        <td><a th:href="@{/sinhvien/edit/{maSV}(maSV=${sinhvien.masv})}">Sửa</a>
+            <a th:href="@{/sinhvien/delete/{maSV}(maSV=${sinhvien.masv})}">Xóa</a></td>
+    </tr>
+    </tbody>
+
+
+</table>
+</body>
+</html>
